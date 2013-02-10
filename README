@@ -1,0 +1,43 @@
+jde_app_audit
+=============
+
+Description:
+This program will perform an application security audit of a JD Edwards
+World system.  This program has two different run types: 'report' 
+or 'diff'.  A 'report' run will produce an excel report showing who has
+access to what critical functions (as defined in the conf file).  A 'diff'
+run will track changes made between two different runs of the script.
+
+Usage:
+jdew.pl  [-dsn ODBC Data Source] [-u username] [-p password]
+         [--run [report|diff]] [--before-dir c:\path\to\before_files]
+         [--after-dir c:\\path\\to\\after_files] [--kill-chkpt] [-h]
+
+--dsn         ODBC Data Source set up for this server. Required
+              for a 'report' run.  This is the system that will be
+              queried to obtain all the necessary data.
+
+-u            Username to use to log into the system represented by
+              the DSN parameter.
+
+-p            Password to use to log into the system represented by
+              the DSN parameter.
+
+--run         The type of run the script should perform.
+              This is ALWAYS a required parameter, and is either
+              'report' for a normal report run or a 'diff' for a
+              diff of two previous runs.
+
+--before-dir  If running a 'diff' report this is the pre/before
+              directory from a previous run.  This represents the
+              beginning date for the comparison.
+
+--after-dir   If running a 'diff' report this is the post/after
+              directory from a previous run.  This represents the
+              ending date for the comparison.
+
+--kill-chkpt  Specify this option to have the script kill
+              the checkpoint services.  Generally this
+              should not be required, but may be at SMWE.
+
+-h            Print this help.
